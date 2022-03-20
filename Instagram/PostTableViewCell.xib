@@ -31,8 +31,8 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button" image="like_none"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jie-ry-YHg">
-                        <rect key="frame" x="80" y="403.5" width="40" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jie-ry-YHg">
+                        <rect key="frame" x="80" y="394" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="zF1-d3-eIQ"/>
                         </constraints>
@@ -40,34 +40,55 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8A-4b-cdb">
-                        <rect key="frame" x="30" y="434.5" width="343" height="99.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キャプション" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8A-4b-cdb">
+                        <rect key="frame" x="30" y="444" width="343" height="46"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOg-34-Wc3">
-                        <rect key="frame" x="130" y="403.5" width="243" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投稿日" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOg-34-Wc3">
+                        <rect key="frame" x="321" y="403.5" width="52" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3tT-LV-NeT">
+                        <rect key="frame" x="30" y="500" width="343" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="yIg-XN-ek2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrE-pj-2Dx">
+                        <rect key="frame" x="130" y="398.5" width="181" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TOg-34-Wc3" firstAttribute="centerY" secondItem="8qf-FY-hVD" secondAttribute="centerY" id="0GW-65-fmS"/>
                     <constraint firstItem="i8A-4b-cdb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="52z-JG-eTb"/>
+                    <constraint firstItem="jie-ry-YHg" firstAttribute="centerY" secondItem="8qf-FY-hVD" secondAttribute="centerY" id="8To-rY-dG9"/>
+                    <constraint firstItem="TOg-34-Wc3" firstAttribute="centerY" secondItem="8qf-FY-hVD" secondAttribute="centerY" id="8jU-10-6Gu"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="3tT-LV-NeT" secondAttribute="bottom" constant="10" id="Fmu-ji-OH4"/>
+                    <constraint firstItem="3tT-LV-NeT" firstAttribute="top" secondItem="i8A-4b-cdb" secondAttribute="bottom" constant="10" id="JcA-Xb-P7U"/>
                     <constraint firstItem="8qf-FY-hVD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Rg9-x5-VPY"/>
+                    <constraint firstItem="yrE-pj-2Dx" firstAttribute="leading" secondItem="jie-ry-YHg" secondAttribute="trailing" constant="10" id="UTX-tG-L2k"/>
                     <constraint firstAttribute="trailingMargin" secondItem="i8A-4b-cdb" secondAttribute="trailing" constant="10" id="X4I-zs-rds"/>
                     <constraint firstItem="i8A-4b-cdb" firstAttribute="top" secondItem="jie-ry-YHg" secondAttribute="bottom" constant="10" id="XK4-Mm-Wb8"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="i8A-4b-cdb" secondAttribute="bottom" constant="10" id="Z5k-66-LKy"/>
                     <constraint firstItem="ocC-zi-KO0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="bFr-sz-mrO"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ocC-zi-KO0" secondAttribute="trailing" id="cpZ-20-Rit"/>
                     <constraint firstItem="ocC-zi-KO0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="e5O-4Z-d6m"/>
-                    <constraint firstItem="TOg-34-Wc3" firstAttribute="leading" secondItem="jie-ry-YHg" secondAttribute="trailing" constant="10" id="eKI-ey-Qul"/>
                     <constraint firstItem="8qf-FY-hVD" firstAttribute="top" secondItem="ocC-zi-KO0" secondAttribute="bottom" constant="10" id="fH2-yd-xyG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3tT-LV-NeT" secondAttribute="trailing" constant="10" id="hSF-6p-GOS"/>
                     <constraint firstItem="jie-ry-YHg" firstAttribute="leading" secondItem="8qf-FY-hVD" secondAttribute="trailing" constant="10" id="hqY-Gs-BZp"/>
                     <constraint firstItem="jie-ry-YHg" firstAttribute="centerY" secondItem="8qf-FY-hVD" secondAttribute="centerY" id="l8f-ar-WPv"/>
+                    <constraint firstItem="i8A-4b-cdb" firstAttribute="top" secondItem="8qf-FY-hVD" secondAttribute="bottom" constant="10" id="pTd-If-ht9"/>
+                    <constraint firstItem="TOg-34-Wc3" firstAttribute="leading" secondItem="yrE-pj-2Dx" secondAttribute="trailing" constant="10" id="rcj-wU-20o"/>
                     <constraint firstAttribute="trailingMargin" secondItem="TOg-34-Wc3" secondAttribute="trailing" constant="10" id="xtK-NN-kfG"/>
+                    <constraint firstItem="3tT-LV-NeT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="yjk-yc-jpf"/>
+                    <constraint firstItem="yrE-pj-2Dx" firstAttribute="centerY" secondItem="8qf-FY-hVD" secondAttribute="centerY" id="zR6-yU-5r6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
