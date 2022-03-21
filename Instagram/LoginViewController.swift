@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
             
             // アドレスとパスワード名のいずれかでも入力されていない時は何もしない
             if address.isEmpty || password.isEmpty {
+                SVProgressHUD.showError(withStatus: "必要項目を入力してください")
                 return
             }
             
@@ -38,6 +39,7 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: address, password: password) { authResult, error in
                 if let error = error {
                     print("DEBUG_PRINT: " + error.localizedDescription)
+                    SVProgressHUD.showError(withStatus: "サインインに失敗しました")
                     return
                 }
                 print("DEBUG_PRINT: ログインに成功しました。")
