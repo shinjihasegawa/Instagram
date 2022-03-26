@@ -73,14 +73,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         cell.setPostData(postArray[indexPath.row])
         
-        // セル内のボタンのアクションをソースコードで設定する
-        cell.likeButton.addTarget(self, action: #selector(handleButton(_:forEvent:)), for: .touchUpInside)
-    
+        // セル内のLIKEボタンのアクションをソースコードで設定する
+        cell.likeButton.addTarget(self, action: #selector(handleLikeButton(_:forEvent:)), for: .touchUpInside)
+        
+        // セル内のSENDボタンのアクションをソースコードで設定する
+        cell.sendButton.addTarget(self, action: #selector(handleSendButton(_:forEvent:)), for: .touchUpInside)
+        
         return cell
     }
     
-    // セル内のボタンがタップされた時に呼ばれるメソッド
-    @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
+    // セル内のLIKEボタンがタップされた時に呼ばれるメソッド
+    @objc func handleLikeButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
         
         // タップされたセルのインデックスを求める
@@ -106,6 +109,40 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
             postRef.updateData(["likes": updateValue])
         }
+    }
+    
+    // セル内のSENDボタンがタップされた時に呼ばれるメソッド
+    @objc func handleSendButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: sendボタンがタップされました。")
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+        // コメントを更新する
+        // 投稿に対するフォロワー名とコメント
+          var followername: String = ""
+        
+//        var followercomment: String?
+        
+        // Commentに更新データを書き込む
+        if Auth.auth().currentUser != nil {
+            let user = Auth.auth().currentUser
+            followername = user!.displayName!
+//            followercomment = commentInputTextField.text
+        } else {
+            // No user is signed in.
+            // ...
+        }
+        
+        let comment = "\(followername): aaa"
+        let updateValue = FieldValue.arrayUnion([comment])
+        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+        postRef.updateData(["comments": updateValue])
     }
     
     
