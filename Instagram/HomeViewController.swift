@@ -125,21 +125,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // コメントを更新する
         // 投稿に対するフォロワー名とコメント
-          var followername: String = ""
-        
-//        var followercomment: String?
+        var followername: String = ""
         
         // Commentに更新データを書き込む
         if Auth.auth().currentUser != nil {
             let user = Auth.auth().currentUser
             followername = user!.displayName!
-//            followercomment = commentInputTextField.text
         } else {
             // No user is signed in.
             // ...
         }
         
-        let comment = "\(followername): aaa"
+        
+        var userComment = ""
+        if let indexPath = indexPath,
+           let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell,
+           let comment = cell.commentInputTextField.text {
+            userComment = comment
+            cell.commentInputTextField.text = ""
+        }
+        let comment = "\(followername): \(userComment)"
+        
         let updateValue = FieldValue.arrayUnion([comment])
         let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
         postRef.updateData(["comments": updateValue])
